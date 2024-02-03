@@ -1,0 +1,23 @@
+def play_war(player1_deck, player2_deck):
+    while player1_deck and player2_deck:
+        card1 = player1_deck.pop(0)
+        card2 = player2_deck.pop(0)
+
+        print("Player 1:", card1, "| Player 2:", card2)
+
+        if ranks.index(card1['Rank']) > ranks.index(card2['Rank']):
+            player1_deck.extend([card1, card2])
+        else:
+            player2_deck.extend([card2, card1])
+
+    if player1_deck:
+        print("Player 1 wins!")
+    else:
+        print("Player 2 wins!")
+
+# Example usage
+war_deck = shuffle_deck(create_deck())
+player1_deck = war_deck[:26]
+player2_deck = war_deck[26:]
+
+play_war(player1_deck, player2_deck)
